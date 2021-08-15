@@ -1,14 +1,13 @@
 #pragma once
 
-#include "SerializeEnum.hpp"
+#include "SerializableEnum.hpp"
 
-enum SpecialAttacks : char
-{
+CONSTANT_ENUM (SpecialAttacks, char,
+
     TRUE_SPEED,
     VOLLEY,
     ROCKFALL,
     SWIFT_ATTACK,
     FIRE
-};
 
-NOSERIALIZE(SpecialAttacks)
+);

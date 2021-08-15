@@ -1,12 +1,11 @@
 #pragma once
 
-#include "SerializeEnum.hpp"
+#include "SerializableEnum.hpp"
 
-enum ElementalAffinity : char
-{
+CONSTANT_ENUM (ElementalAffinity, char,
+
     EA_FIRE,
     EA_ICE,
     EA_LIGHTNING
-};
 
-NOSERIALIZE(ElementalAffinity)
+);

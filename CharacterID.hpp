@@ -1,9 +1,9 @@
 #pragma once
 
-#include "SerializeEnum.hpp"
+#include "SerializableEnum.hpp"
 
-enum CharacterID : char
-{
+CONSTANT_ENUM (CharacterID, char,
+
     // SHU
     GUAN_PING,
     GUAN_YU,
@@ -52,6 +52,5 @@ enum CharacterID : char
     LU_BU,
     YUAN_SHAO,
     ZHANG_JIAO
-};
 
-NOSERIALIZE(CharacterID)
+);

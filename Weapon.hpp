@@ -8,7 +8,7 @@
 struct Weapon
 {
     uint8_t power;
-    WeaponType type;
-    ElementalAffinity affinity;
-    WeaponEffects effects;
+    enum WeaponType type;
+    enum ElementalAffinity affinity;
+    enum WeaponEffects effects;
 };

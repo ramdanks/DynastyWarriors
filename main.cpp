@@ -6,15 +6,7 @@
 #include <iostream>
 #include <utility>
 
-void diplayDialog(Character chara)
-{
-    const auto idx = serial(chara.id);
-    puts(Stringify::Character[idx].begin());
-}
-
 int main(int argc, char* argv[])
 {
-    CharacterID effects = static_cast<CharacterID>(argc);
-    auto idx = serial(effects);
-    puts(Stringify::Character[idx].begin());
+    return Enum::CharacterID.size();
 }

@@ -8,14 +8,14 @@
 
 struct Character
 {
-    CharacterID id;
-    Kingdom kingdom;
-    SpecialAttacks specialAttacks;
+    enum CharacterID id;
+    enum Kingdom kingdom;
+    enum SpecialAttacks specialAttacks;
     
     constexpr Character() = delete;
     constexpr Character(const Character& character) noexcept = default;
     constexpr Character(Character&& character) noexcept = default;
-    constexpr Character(CharacterID id, Kingdom kingdom, SpecialAttacks specialAttacks) noexcept
+    constexpr Character(enum CharacterID id, enum Kingdom kingdom, enum SpecialAttacks specialAttacks) noexcept
     : id(id), kingdom(kingdom), specialAttacks(specialAttacks)
     {}
 

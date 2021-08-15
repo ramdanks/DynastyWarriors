@@ -1,13 +1,12 @@
 #pragma once
 
-#include "SerializeEnum.hpp"
+#include "SerializableEnum.hpp"
 
-enum Kingdom : char
-{
+CONSTANT_ENUM (Kingdom, char,
+
     SHU,
     WEI,
     WU,
     OTHER
-};
 
-NOSERIALIZE(Kingdom)
+);

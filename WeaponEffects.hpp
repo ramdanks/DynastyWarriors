@@ -1,10 +1,10 @@
 #pragma once
 
-#include "SerializeEnum.hpp"
+#include "SerializableEnum.hpp"
 #include "Math.hpp"
 
-enum WeaponEffects : short
-{
+SERIALIZABLE_ENUM (WeaponEffects, short, HighBit<short>,
+
     WE_BALANCE        = 1 << 0,
     WE_AIR_WAVE       = 1 << 1,
     WE_TRUE_MUSOU     = 1 << 2,
@@ -15,6 +15,5 @@ enum WeaponEffects : short
     WE_FLASH          = 1 << 7,
     WE_MYSTIC_SEAL    = 1 << 8,
     WE_LEECH          = 1 << 9
-};
 
-SERIALIZE(WeaponEffects, HighBit<short>)
+);

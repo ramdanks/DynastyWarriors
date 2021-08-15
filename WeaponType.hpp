@@ -1,12 +1,11 @@
 #pragma once
 
-#include "SerializeEnum.hpp"
+#include "SerializableEnum.hpp"
 
-enum WeaponType : char
-{
+CONSTANT_ENUM (WeaponType, char,
+
     WT_STANDARD,
     WT_STRENGTH,
     WT_SKILL
-};
 
-NOSERIALIZE(WeaponType)
+);
