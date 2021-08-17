@@ -21,19 +21,14 @@ struct ThreadPool
         for (size_t i = 0; i < threadCount; ++i)
             workers.emplace_back(&ThreadPool::mainLoop, this);
     }
+    // add work to queue and notify threads to run it
     void inline dispatch(work&& work) noexcept
     {
         workQueue.emplace(std::move(work));
         condition.notify_one();
     }
-    void inline schedule(work&& work) noexcept
-    {
-        workQueue.emplace(std::move(work));
-    }
-    void inline run() noexcept
-    {
-        condition.notify_all();
-    }
+    // ask threads to exit and wait for it to complete it's task if exists
+    // dtor will not wait for queue to be completed (emptied).
     ~ThreadPool()
     {
         exit = true;
