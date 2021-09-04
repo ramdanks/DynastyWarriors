@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
+#include "Engine/SerializableEnum.hpp"
 
 CONSTANT_ENUM (WeaponType, char,
 
@@ -8,4 +8,4 @@ CONSTANT_ENUM (WeaponType, char,
     WT_STRENGTH,
     WT_SKILL,
 
-);
+)

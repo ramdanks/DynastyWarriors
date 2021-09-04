@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
+#include "Engine/SerializableEnum.hpp"
 
 CONSTANT_ENUM (CharacterID, char,
 
@@ -53,4 +53,4 @@ CONSTANT_ENUM (CharacterID, char,
     YUAN_SHAO,
     ZHANG_JIAO
 
-);
+)

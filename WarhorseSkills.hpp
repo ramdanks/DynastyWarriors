@@ -1,7 +1,7 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
-#include "Math.hpp"
+#include "Engine/SerializableEnum.hpp"
+#include "Engine/Math.hpp"
 
 SERIALIZABLE_ENUM (WarhorseSkills, char, HighBit<char>,
 
@@ -11,4 +11,4 @@ SERIALIZABLE_ENUM (WarhorseSkills, char, HighBit<char>,
     FIND_WEAPON  = 1 << 3,
     MUSOU_SPIRIT = 1 << 4
 
-);
+)

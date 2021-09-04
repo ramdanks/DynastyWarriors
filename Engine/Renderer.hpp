@@ -1,7 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "Config.hpp"
 #include "Ticks.hpp"
 #include <utility>
 
@@ -21,7 +20,7 @@ public:
         if (TTF_Init() != 0)
             throw std::runtime_error(TTF_GetError());
 
-        font = TTF_OpenFont(TTF_PATH, 14);
+        font = TTF_OpenFont("Engine/ttf/JetBrainsMono-Regular.ttf", 14);
         SDL_assert(font != nullptr);
 
         if (SDL_Init( SDL_INIT_EVERYTHING ) < 0)
@@ -35,28 +34,30 @@ public:
     }
     static void debug(Ticks ticks) noexcept
     {
-        char buf[20];
+        char buf[50];
         double ftime = convert<double>(ticks, MILLI);
-        snprintf(buf, sizeof(buf), "frametime: %.2lf ms", ftime);
+        double fps = getFps<double>(ticks);
+        snprintf(buf, sizeof(buf), "frametime: %.2lf ms (%.1lf fps)", ftime, fps);
 
         // as TTF_RenderText_Solid could only be used on
         // SDL_Surface then you have to create the surface first
-        SDL_Surface* surfaceMessage = TTF_RenderText_Solid(font, buf, {255, 255, 255}); 
+        SDL_Surface* surfaceMessage = TTF_RenderText_Blended(font, buf, {255, 255, 255, 255}); 
         SDL_assert(surfaceMessage != nullptr);
 
         // now you can convert it into a texture
         SDL_Texture* msgTexture = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
         SDL_assert(msgTexture != nullptr);
 
-        SDL_Rect msgRect; //create a rect
-        msgRect.x = 0;  //controls the rect's x coordinate 
-        msgRect.y = 0; // controls the rect's y coordinte
-        msgRect.w = surfaceMessage->w; // controls the width of the rect
-        msgRect.h = surfaceMessage->h; // controls the height of the rect
+        SDL_Rect rect{0,0,0,0};
+        SDL_QueryTexture(msgTexture, nullptr, nullptr, &rect.w, &rect.h);
 
-        render(msgTexture, &msgRect);
+        render(msgTexture, &rect);
         SDL_FreeSurface(surfaceMessage);
         SDL_DestroyTexture(msgTexture);
+    }
+    static inline SDL_Renderer* getRenderer()
+    { 
+        return renderer;
     }
     static inline bool render(SDL_Texture* texture, const SDL_Rect* rect) noexcept
     {

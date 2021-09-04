@@ -14,7 +14,7 @@ enum Period
 };
 
 template <typename R>
-R convert(Ticks ticks, Period period)
+constexpr R convert(Ticks ticks, Period period) noexcept
 {
     switch (period)
     {
@@ -24,6 +24,12 @@ R convert(Ticks ticks, Period period)
     case SECOND: return static_cast<R>(1) * ticks / 1e9;
     }
     return static_cast<R>(0);
+}
+
+template <typename R>
+constexpr R getFps(Ticks ticks) noexcept
+{
+    return static_cast<R>(1e9) / ticks;
 }
 
 #endif

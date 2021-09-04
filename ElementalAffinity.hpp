@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
+#include "Engine/SerializableEnum.hpp"
 
 CONSTANT_ENUM (ElementalAffinity, char,
 
@@ -8,4 +8,4 @@ CONSTANT_ENUM (ElementalAffinity, char,
     EA_ICE,
     EA_LIGHTNING
 
-);
+)

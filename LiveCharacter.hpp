@@ -5,7 +5,7 @@
 #include "Exp.hpp"
 #include <memory>
 
-class LiveCharacter : Character
+class LiveCharacter : public Character
 {
 private:
     Exp exp;

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
-#include "Math.hpp"
+#include "Engine/SerializableEnum.hpp"
+#include "Engine/Math.hpp"
 
 SERIALIZABLE_ENUM (WeaponEffects, short, HighBit<short>,
 
@@ -16,4 +16,4 @@ SERIALIZABLE_ENUM (WeaponEffects, short, HighBit<short>,
     WE_MYSTIC_SEAL    = 1 << 8,
     WE_LEECH          = 1 << 9
 
-);
+)

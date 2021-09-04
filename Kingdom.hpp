@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
+#include "Engine/SerializableEnum.hpp"
 
 CONSTANT_ENUM (Kingdom, char,
 
@@ -9,4 +9,4 @@ CONSTANT_ENUM (Kingdom, char,
     WU,
     OTHER
 
-);
+)

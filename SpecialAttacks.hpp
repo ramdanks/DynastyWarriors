@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SerializableEnum.hpp"
+#include "Engine/SerializableEnum.hpp"
 
 CONSTANT_ENUM (SpecialAttacks, char,
 
@@ -10,4 +10,4 @@ CONSTANT_ENUM (SpecialAttacks, char,
     SWIFT_ATTACK,
     FIRE
 
-);
+)
